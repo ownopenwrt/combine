@@ -1,6 +1,8 @@
 name: Update Iran IP List
 
 on:
+  push:
+    branches: [ main ]
   schedule:
     # Run every 8 hours
     - cron: '0 */8 * * *'
