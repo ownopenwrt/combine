@@ -6,6 +6,9 @@ TEXT_SOURCES = [
     "https://raw.githubusercontent.com/herrbischoff/country-ip-blocks/master/ipv4/ir.cidr",
     "https://www.ipdeny.com/ipblocks/data/countries/ir.zone",
     "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/ir.txt",
+    "https://parspack.com/cdnips.txt",
+    "https://api.derak.cloud/public/ipv4",
+    "https://www.arvancloud.ir/en/ips.txt"
 ]
 
 IPHUB_SOURCE = "https://raw.githubusercontent.com/ownopenwrt/openwrt/main/iphub.txt"
