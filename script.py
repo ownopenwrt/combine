@@ -5,6 +5,7 @@ import re
 TEXT_SOURCES = [
     "https://raw.githubusercontent.com/herrbischoff/country-ip-blocks/master/ipv4/ir.cidr",
     "https://www.ipdeny.com/ipblocks/data/countries/ir.zone",
+    "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/text/ir.txt",
 ]
 
 IPHUB_SOURCE = "https://raw.githubusercontent.com/ownopenwrt/openwrt/main/iphub.txt"
@@ -38,9 +39,19 @@ def main():
         if m:
             result.add(normalize(m.group(1)))
 
+    ipv4_list = []
+
+    for cidr in result:
+        try:
+            net = ipaddress.ip_network(cidr)
+            if net.version == 4:
+                ipv4_list.append(net)
+        except ValueError:
+            continue
+
     with open("iran_ip.lst", "w") as f:
-        for cidr in sorted(result, key=lambda x: ipaddress.ip_network(x)):
-            f.write(cidr + "\n")
+        for net in sorted(ipv4_list):
+            f.write(str(net) + "\n")
 
 if __name__ == "__main__":
     main()
