@@ -1,0 +1,4 @@
+# Ensure no author information is tracked
+* -export-ignore
+* -ident
+
